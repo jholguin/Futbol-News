@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="futbol">
+<head>
+	<title>Futbol news</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<header>
+		<h1>Futbol News</h1>
+	</header>
+	<div class="wrapper" ng-controller="NewsController">
+		<section class="news-list">
+			<h2>News List</h2>
+			<ul>
+				<li ng-repeat="article in articles">
+					<span>{{title}}</span>
+				</li>
+			</ul>
+		</section>
+		<section class="news-feed">
+			<h2>News Feed</h2>
+		</section>
+	</div>
+	
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

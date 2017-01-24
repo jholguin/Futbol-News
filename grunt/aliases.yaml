@@ -1,0 +1,11 @@
+build-css:
+- 'sass'
+- 'autoprefixer'
+
+build-js:
+- 'concat'
+
+default:
+- 'build-css'
+- 'build-js'
+- 'watch'
