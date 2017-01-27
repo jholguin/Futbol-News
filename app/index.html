@@ -1,28 +1,58 @@
-<!DOCTYPE html>
-<html ng-app="futbol">
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en" ng-app="futbol-news"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en" ng-app="futbol-news"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en" ng-app="futbol-news"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="futbol-news"> <!--<![endif]-->
 <head>
-	<title>Futbol news</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Futbol News</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 	<header>
 		<h1>Futbol News</h1>
 	</header>
-	<div class="wrapper" ng-controller="NewsController">
-		<section class="news-list">
-			<h2>News List</h2>
+	
+	<div class="loading-container" ng-class="{'content-loaded': !loaded}">
+	    <div class="loading"></div>
+	    <div id="loading-text">loading</div>
+	</div>
+
+	<div class="wrapper" ng-controller="NewsCtrl" ng-class="{'loaded': loaded}">
+		<section class="feed-titles" ng-class="{'content-loaded': loaded}">
 			<ul>
-				<li ng-repeat="article in articles">
-					<span>{{title}}</span>
+				<li ng-repeat="article in feed.articles">
+					<a href="#article{{$index}}" du-smooth-scroll du-scrollspy offset="102" style="background-image:url('{{article.urlToImage}}');">
+						<span ng-bind-html="article.title"></span>
+					</a>
 				</li>
 			</ul>
 		</section>
-		<section class="news-feed">
-			<h2>News Feed</h2>
+		<section class="feed-details">
+			<div id="article{{$index}}" class="article" ng-repeat="article in feed.articles">
+				<h3 class="article-title" ng-bind-html="article.title"></h3>
+				<img class="article-image" ng-src="{{article.urlToImage}}" />
+				<p>Bacon ipsum dolor amet porchetta boudin pork loin sausage kielbasa. Boudin salami chuck, flank beef ribs kielbasa pork chop meatloaf meatball. Ground round beef ribs tongue short loin pork loin porchetta chicken ham hock venison capicola. Andouille swine pastrami strip steak, burgdoggen pig cow. Biltong kevin fatback meatloaf venison pastrami corned beef, turkey chicken. Shank flank leberkas, boudin pork loin venison strip steak. Ham porchetta burgdoggen short ribs.</p>
+
+				<p>Pig short loin kevin, sirloin tail strip steak prosciutto cow rump ham hock pastrami. Chuck shoulder tri-tip pancetta alcatra cupim swine shankle chicken short ribs venison brisket. Boudin cow leberkas, jowl biltong short loin shank jerky turkey turducken spare ribs brisket beef ribs capicola beef. Salami pancetta ground round, shank sausage picanha ham hock leberkas t-bone jerky tri-tip ball tip pig.</p>
+
+				<p>T-bone picanha sirloin pastrami pork pig, alcatra bacon venison andouille turducken shankle. Brisket spare ribs andouille, bacon filet mignon shankle biltong flank alcatra prosciutto ham. Cow pork belly flank tri-tip jerky turducken kevin beef ribs ham hock bresaola shoulder pork chop venison swine. Swine jerky short ribs ham meatball biltong meatloaf salami jowl corned beef tri-tip. Porchetta beef ribs pork loin swine bresaola, pig fatback jerky ball tip.</p>
+
+				<p>Tail picanha kielbasa boudin cow salami jowl pork chop pig pastrami shoulder beef bacon chuck meatloaf. Capicola frankfurter sausage spare ribs, short loin jowl landjaeger kevin turducken pancetta drumstick t-bone. T-bone strip steak leberkas filet mignon venison. Turkey leberkas shankle, ham fatback rump swine kielbasa jowl burgdoggen. Bresaola tongue drumstick capicola beef meatball salami sausage burgdoggen pork ribeye doner short ribs.</p>
+
+				<p>Kielbasa ball tip pork loin tri-tip venison ham hock prosciutto hamburger meatball pork chuck. Alcatra ribeye spare ribs sirloin ham meatloaf drumstick. Pork chop kielbasa ham hock drumstick cupim boudin pastrami, chicken shankle pork burgdoggen venison. Salami turkey turducken, drumstick cow short loin beef ribs kielbasa pig andouille.</p>
+
+				<p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!</p>
+			</div>
 		</section>
 	</div>
 	
-	<script type="text/javascript" src="js/app.js"></script>
+
+	<script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>

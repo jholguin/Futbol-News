@@ -1,7 +1,4 @@
 module.exports = {
-	options: {
-    	livereload: false
-    },
     gruntfile: {
         files: ['Gruntfile.js']
     },
@@ -9,8 +6,8 @@ module.exports = {
     	files: [ '<%= paths.src %>/scss/**/*.scss' ],
         tasks: ['build-css']
     },
-    js:{
+    scripts:{
         files: [ '<%= paths.src %>/js/**/*.js' ],
-        tasks: ['concat']
+        tasks: ['concat:app']
     }
 }

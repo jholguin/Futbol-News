@@ -1,11 +1,21 @@
 build-css:
-- 'sass'
-- 'autoprefixer'
+- 'sass:dist'
+- 'autoprefixer:dev'
 
-build-js:
+build:
+- 'build-css'
 - 'concat'
 
+build-prod:
+- 'sass'
+- 'autoprefixer:dev'
+- 'concat'
+- 'uglify'
+- 'cssmin'
+
 default:
-- 'build-css'
-- 'build-js'
+- 'build'
 - 'watch'
+
+prod:
+- 'build-prod'
