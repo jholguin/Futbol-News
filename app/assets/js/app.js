@@ -35201,7 +35201,6 @@ futbolnews.run(function($rootScope) {
     if(!window.history || !history.replaceState) {
       return;
     }
-    $rootScope.loaded = false;
 });
 futbolnews.factory("News", function($resource) {
   return $resource("https://newsapi.org/v1/articles?source=football-italia&sortBy=top&apiKey=5058089d6b914da0b97f39d0ee5dc876");
@@ -35216,6 +35215,7 @@ futbolnews.controller('NewsCtrl',['$scope', 'News', '$rootScope', function($scop
 	//Get all new feed articles
 	News.get(function(data){
 		$scope.feed = data;
+		$scope.loaded = true;
 	});
 
 	//Get angular element for feed title

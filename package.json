@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.6.1",
+    "angular-mocks": "^1.6.1",
     "angular-resource": "^1.6.1",
     "angular-sanitize": "^1.6.1",
     "angular-scroll": "^1.0.0",
@@ -20,6 +21,10 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
     "load-grunt-config": "^0.19.2"
   }
 }

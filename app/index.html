@@ -17,14 +17,14 @@
 	<header>
 		<h1>Futbol News</h1>
 	</header>
-	
-	<div class="loading-container" ng-class="{'content-loaded': !loaded}">
-	    <div class="loading"></div>
-	    <div id="loading-text">loading</div>
-	</div>
 
-	<div class="wrapper" ng-controller="NewsCtrl" ng-class="{'loaded': loaded}">
-		<section class="feed-titles" ng-class="{'content-loaded': loaded}">
+	<div class="wrapper" ng-controller="NewsCtrl">
+
+		<div class="loading-container" ng-hide="loaded">
+		    <div class="loading"></div>
+		    <div id="loading-text">loading</div>
+		</div>
+		<section class="feed-titles" ng-show="loaded">
 			<ul>
 				<li ng-repeat="article in feed.articles">
 					<a href="#article{{$index}}" du-smooth-scroll du-scrollspy offset="102" style="background-image:url('{{article.urlToImage}}');">
@@ -33,7 +33,7 @@
 				</li>
 			</ul>
 		</section>
-		<section class="feed-details">
+		<section class="feed-details" ng-show="loaded">
 			<div id="article{{$index}}" class="article" ng-repeat="article in feed.articles">
 				<h3 class="article-title" ng-bind-html="article.title"></h3>
 				<img class="article-image" ng-src="{{article.urlToImage}}" />

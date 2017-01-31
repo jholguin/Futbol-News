@@ -16,11 +16,13 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         './node_modules/angular/angular.js',
+        './node_modules/angular-resource/angular-resource.js',
         './node_modules/angular-scroll/angular-scroll.js',
+        './node_modules/angular-sanitize/angular-sanitize.js',
         './node_modules/angular-mocks/angular-mocks.js',
         './lib/js/app.js',
-        './lib/js/factory/newsfeed/newsfeed.js',
-        './lib/js/factory/newsfeed/newsfeed.spec.js'
+        './lib/js/factory/News.js',
+        './lib/tests/News.spec.js'
     ],
 
 
@@ -38,7 +40,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec'],
+    reporters: ['progress'],
 
 
     // web server port
